@@ -30,11 +30,11 @@ def get_estimated_price(bath , bhk , sqft , area , location):
     
 
 def get_areas_names():
-    load_saved_artifacts()
+    # load_saved_artifacts()
     return __areas
 
 def get_location_names():
-    load_saved_artifacts()
+    # load_saved_artifacts()
     return __locations
 
 def load_saved_artifacts():
@@ -55,11 +55,11 @@ def load_saved_artifacts():
 
 if __name__ == '__main__':
     # get_location_names()
-    # load_saved_artifacts()
-    print(get_areas_names())
-    print(get_location_names())
-    print(get_estimated_price(3 , 4 , 1000 , 'Plot Area' , 'Indira Nagar'))
-    print(get_estimated_price(6 , 6 , 2000 , 'Plot Area' , 'Indira Nagar'))
+    load_saved_artifacts()
+    # print(get_areas_names())
+    # print(get_location_names())
+    # print(get_estimated_price(3 , 4 , 1000 , 'Plot Area' , 'Indira Nagar'))
+    # print(get_estimated_price(6 , 6 , 2000 , 'Plot Area' , 'Indira Nagar'))
 
 
 

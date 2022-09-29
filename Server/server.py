@@ -25,26 +25,30 @@ def get_area_names():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-# @app.route('/predict_home_price' , methods = ['POST'])
-# def predict_home_price():
-#     total_sqft = float(request.form['total_sqft'])
-#     location = request.form['location']
-#     bhk = int(request.form['bhk'])
-#     bath = int(request.form['bath']) 
-#     area = request.form['area']
+@app.route('/predict_home_price' , methods = ['GET' , 'POST'])
+def predict_home_price():
+    total_sqft = float(request.form['total_sqft'])
+    location = request.form['location']
+    bhk = int(request.form['bhk'])
+    bath = int(request.form['bath']) 
+    area = request.form['area']
 
+    # total_sqft = 1000
+    # location = 'Indira Nagar'
+    # bhk = 4
+    # bath = 3 
+    # area = 'Plot Area' 
 
-    # response = jsonify({
-    #     'estimated_price' : utils.get_estimated_price(bath , bhk , total_sqft , area , location)
-    # })
+    response = jsonify({
+        'estimated_price' : utils.get_estimated_price(bath , bhk , total_sqft , area , location)
+    })
 
-    # response.headers.add('Access-Control-Allow-Origin', '*')
-    # return response
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    # print(response)
+    return response
 
 
 if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction.....")
+    utils.load_saved_artifacts()
     app.run()
-
-
-
